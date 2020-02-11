@@ -8,5 +8,11 @@ stdin.on('data', (key) => {
   } else if (key === '\u0003') {
     process.stdout.write('Thanks for using me, ciao!\n');
     process.exit();
+  } else if (key > 0 && key < 10) {
+    process.stdout.write(`Setting timer for ${key} seconds...\n`);
+    setTimeout(() => {
+      process.stdout.write('\x07Beep!\n');
+    }, Number(key) * 1000);
+    }
   }
-});
+);
